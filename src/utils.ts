@@ -25,7 +25,7 @@ export function getRemoteSchema(
   url: string,
   headers: { [name: string]: string },
 ): Promise<GraphQLSchema> {
-  return graphqlRequest(url, headers, getIntrospectionQuery())
+  return graphqlRequest(url, headers, getIntrospectionQuery({inputValueDeprecation: true}))
     .then((response) => {
       if (response.errors) {
         throw Error(JSON.stringify(response.errors, null, 2));
