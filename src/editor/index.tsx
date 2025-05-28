@@ -4,11 +4,14 @@ import './GraphQLEditor/editor.css';
 import 'graphiql/graphiql.css';
 import 'graphql-voyager/dist/voyager.css';
 
-import GraphiQL from 'graphiql';
 import { GraphQLSchema, Source } from 'graphql';
+import * as GraphiQLPackage from 'graphiql';
 import { Voyager } from 'graphql-voyager';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+
+// Cast GraphiQL to any to fix TypeScript errors
+const GraphiQL = GraphiQLPackage.default as any;
 
 import { buildWithFakeDefinitions } from '../fake_definition';
 import GraphQLEditor from './GraphQLEditor/GraphQLEditor';
