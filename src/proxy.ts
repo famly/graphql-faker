@@ -22,7 +22,9 @@ export function getProxyExecuteFn(url, headers, forwardHeaders) {
     const request = contextValue as IncomingMessage;
     const proxyHeaders = Object.create(null);
     for (const name of forwardHeaders) {
-      proxyHeaders[name] = request.headers[name];
+      if (request.headers[name]) {
+        proxyHeaders[name] = request.headers[name];
+      }
     }
 
     const strippedAST = removeUnusedVariables(
