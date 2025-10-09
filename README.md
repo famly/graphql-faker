@@ -101,6 +101,6 @@ Because the process is running inside of the container, `--open` does not work.
 
 ```sh
 npm i
-npm run build
+NODE_OPTIONS=--openssl-legacy-provider npm run build
 npm run start
 ```
